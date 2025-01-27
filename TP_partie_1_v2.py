@@ -20,13 +20,13 @@ yi = np.linspace(min(y_sym), max(y_sym), 100)
 xi, yi = np.meshgrid(xi, yi)
 
 # Interpoler les données sur la grille
-Vi = griddata((x_sym, y_sym), V_sym, (xi, yi), method='cubic')
+Vi = griddata((x_sym, y_sym), V_sym, (xi, yi), method='linear')
 
 # Tracer les équipotentielles
 plt.figure(figsize=(10, 6))
 contour = plt.contour(xi, yi, Vi, levels=14, colors='black')
 plt.clabel(contour, inline=1, fontsize=10)
-plt.title('Carthographie du champ électrique')
+plt.title('Cartographie du champ électrique')
 plt.xlabel('x')
 plt.ylabel('y')
 
